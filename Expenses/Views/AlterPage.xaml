@@ -1,0 +1,44 @@
+﻿<Page
+	x:Class="Expenses.Views.AlterPage"
+	DataContext="{Binding Alter, Source={StaticResource ViewModelLocator}}"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:helpers="using:Expenses.ViewModels.Helpers"
+	mc:Ignorable="d"
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<Page.Resources>
+		<helpers:DecimalToStringConverter x:Key="DecimalToStringConverter" />
+		<helpers:DateTimeToDateTimeOffsetConverter  x:Key="DateTimeToDateTimeOffsetConverter" />
+	</Page.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0">
+			<TextBlock Text="Name" FontSize="26"/>
+			<TextBox Text="{Binding Change.Name, Mode=TwoWay}" InputScope="NameOrPhoneNumber"/>
+		</StackPanel>
+		<StackPanel Grid.Row="1">
+			<TextBlock Text="Value" FontSize="26"/>
+			<TextBox Text="{Binding Change.Value, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}" InputScope="Number"/>
+		</StackPanel>
+		<StackPanel Grid.Row="2">
+			<TextBlock Text="Date" FontSize="26"/>
+			<DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Date="{Binding Change.Date.Day, Mode=TwoWay, Converter={StaticResource DateTimeToDateTimeOffsetConverter}}"/>
+		</StackPanel>
+
+	</Grid>
+
+	<Page.BottomAppBar>
+		<CommandBar>
+			<AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="appbarbutton" VerticalAlignment="Top" Command="{Binding AcceptCommand}"/>
+			<AppBarButton HorizontalAlignment="Left" Icon="Cancel" Label="appbarbutton" VerticalAlignment="Top" Command="{Binding RejectCommand}"/>
+		</CommandBar>
+		</Page.BottomAppBar>
+</Page>
