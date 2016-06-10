@@ -18,12 +18,12 @@ namespace Expenses.ViewModels
 			this.navigationService = navigationService;
 			Changes = new ObservableCollection<Change>
 			{
-				new Change() {Name = "Biceps", Value = 322},
-				new Change() {Name = "Tricpes", Value = 666},
-				new Change() {Name = "Biceps", Value = 322},
-				new Change() {Name = "Tricpes", Value = 666},
-				new Change() {Name = "Biceps", Value = 322},
-				new Change() {Name = "Tricpes", Value = 666}
+				new Change() {Name = "Drozdzowka", Value = 322},
+				new Change() {Name = "Pieczywo", Value = 666},
+				new Change() {Name = "Basen", Value = 322},
+				new Change() {Name = "Rachunek za telefon", Value = 666},
+				new Change() {Name = "Kino", Value = 322},
+				new Change() {Name = "Fryzjer", Value = 666}
 			};
 
 			DeleteSelectedItemCommand = new RelayCommand(DeleteSelectedItem, () => SelectedChange != null);

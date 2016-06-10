@@ -7,8 +7,8 @@ namespace Expenses.Models
 		public string Name { get; set; }
 		public DateTime Date { get; set; }
 		public decimal Value { get; set; }
-        enum Usefulness {good, bad}
 
+        
 
         public Change()
 		{
@@ -19,4 +19,5 @@ namespace Expenses.Models
 			return String.Format("{0} {1} {2}", Name, Value, Date.ToString("d"));
 		}
 	}
+
 }
